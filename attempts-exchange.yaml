@@ -1,0 +1,10 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: Exchange
+metadata:
+  name: attempts-exchange
+spec:
+  name: attempts.topic # name of the exchange
+  type: topic # default to 'direct' if not provided; can be set to 'direct', 'fanout', 'headers', and 'topic'
+  durable: true
+  rabbitmqClusterReference:
+    name: keglingpet-rabbitmq

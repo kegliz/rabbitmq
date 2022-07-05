@@ -1,0 +1,11 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: Binding
+metadata:
+  name: correct-attempts-binding
+spec:
+  source: attempts.topic # an existing exchange
+  destination: gamification.queue # an existing queue
+  destinationType: queue # can be 'queue' or 'exchange'
+  routingKey: "attempt.correct"
+  rabbitmqClusterReference:
+    name: keglingpet-rabbitmq
